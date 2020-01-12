@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "8"
+  - "9"
+  - "10"
+install:
+  - npm install
+script:
+  - npm test
+  - npm test.dns
+  - npm test.errors
+  - npm test.geoip
+  - npm test.jcard
+  - npm test.model
+  - npm test.refresh
+  - npm test.util
+  - npm test.whois
+  - npm lint
+  - npm lint.test

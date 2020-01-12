@@ -1,0 +1,14 @@
+{
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-control-regex": "off",
+        "no-empty": ["error", {
+            "allowEmptyCatch": true
+        }]
+    }
+}

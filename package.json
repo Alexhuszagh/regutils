@@ -1,0 +1,41 @@
+{
+  "name": "regutils",
+  "version": "0.0.1",
+  "private": true,
+  "description": "High-Level Registrar Utilities",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "lint.test": "eslint test --global it,describe",
+    "test": "mocha --no-warnings \"test/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.dns": "mocha --no-warnings \"test/dns/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.errors": "mocha --no-warnings \"test/errors.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.geoip": "mocha --no-warnings \"test/geoip/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.jcard": "mocha --no-warnings \"test/jcard/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.model": "mocha --no-warnings \"test/model/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.refresh": "mocha --no-warnings \"test/refresh.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.util": "mocha --no-warnings \"test/util/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill",
+    "test.whois": "mocha --no-warnings \"test/whois/index.js\" --require @babel/register --require @babel/core --require @babel/polyfill"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^6.2.2",
+    "tmp": "^0.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "big-integer": "^1.6.48",
+    "encoding-down": "^6.3.0",
+    "levelup": "^4.3.2",
+    "memdown": "^5.1.0",
+    "rocksdb": "^4.1.0",
+    "tiny-async-pool": "^1.1.0"
+  }
+}
