@@ -36,11 +36,27 @@ describe('errors', () => {
     })
   })
 
+  describe('geoip', () => {
+    it('should create a proper message', () => {
+      let error = new errors.GeoIp('unknown record type')
+      expect(error.name).to.equal('GeoIpError')
+      expect(error.message).to.equal('GEOIP error: \'unknown record type\'')
+    })
+  })
+
   describe('rdap', () => {
     it('should create a proper message', () => {
       let error = new errors.Rdap('Invalid syntax.')
       expect(error.name).to.equal('RdapError')
       expect(error.message).to.equal('RDAP error: \'Invalid syntax.\'')
+    })
+  })
+
+  describe('asn', () => {
+    it('should create a proper message', () => {
+      let error = new errors.Asn('17a')
+      expect(error.name).to.equal('AsnError')
+      expect(error.message).to.equal('ASN: invalid ASN record \'17a\'')
     })
   })
 

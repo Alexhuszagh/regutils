@@ -26,9 +26,7 @@ const sleep = timeout => {
 describe('refresh', () => {
   it('should correctly update data', async () => {
     let x = 1
-    const callback = async () => {
-      return x++
-    }
+    const callback = async () => x++
     let context = refresh(10, callback)
 
     // Try one loop
@@ -39,5 +37,31 @@ describe('refresh', () => {
     await sleep(11)
     expect(await context()).to.equal(2)
     expect(await context()).to.equal(2)
+
+    // Wait till time expires
+    await sleep(11)
+    expect(await context()).to.equal(3)
+    expect(await context()).to.equal(3)
+  })
+
+  it('should correctly cleanup data', async () => {
+    let x = 1
+    const callback = async () => x++
+    const cleanup = async () => x += 50
+    let context = refresh(10, callback, cleanup)
+
+    // Try one loop
+    expect(await context()).to.equal(1)
+    expect(await context()).to.equal(1)
+
+    // Wait till time expires
+    await sleep(11)
+    expect(await context()).to.equal(2)
+    expect(await context()).to.equal(2)
+
+    // Wait till time expires
+    await sleep(11)
+    expect(await context()).to.equal(53)
+    expect(await context()).to.equal(53)
   })
 })

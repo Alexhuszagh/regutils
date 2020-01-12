@@ -18,15 +18,10 @@
 
 import cache from './cache'
 import codec from './codec'
+import fetch from './fetch'
 
 export default {
   cache,
-  codec
+  codec,
+  fetch
 }
-
-// TODO(ahuszagh)
-//    Need to create a high-level module from
-//      1). The node
-//      2). The tree
-//      3). The cache
-//      4). The fetch

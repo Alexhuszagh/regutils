@@ -23,9 +23,14 @@ import util from './util'
  *
  *  @param {Number} timeout - Timeout to refresh data.
  *  @param {Function} callback - Asynchronous function to generate data from scratch.
+ *  @param {Function} cleanup - Asynchronous function to
  *  @returns {Function} Async function that returns currently stored data.
+ *
+ *  The cleanup function should accept data that is valid and complete.
+ *  If an error is thrown, is it the responsibility of the caller
+ *  to clean it up.
  */
-export default (timeout, callback) => {
+export default (timeout, callback, cleanup) => {
   // Store state in the parent body, and then modify
   // them in the parent scope.
   let data
@@ -35,8 +40,16 @@ export default (timeout, callback) => {
     // Do not handle any errors, let them propagate.
     let current = util.time.current()
     if (data === undefined || (current - time) > timeout) {
-      data = await callback()
+      // Acquire new data, keep reference to old data, and assign new data in data.
+      let result = await callback()
+      let old = data
+      data = result
       time = current
+
+      // Cleanup old data.
+      if (cleanup !== undefined && old !== undefined) {
+        await cleanup(old)
+      }
     }
     return data
   }

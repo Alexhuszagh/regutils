@@ -18,5 +18,6 @@
 
 describe('geoip', () => {
   require('./cache'),
-  require('./codec')
+  require('./codec'),
+  require('./fetch')
 })

@@ -17,6 +17,7 @@
  */
 
 describe('model', () => {
+  require('./asn'),
   require('./ipv4'),
   require('./ipv6')
 })

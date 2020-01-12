@@ -43,7 +43,9 @@ class AbstractMethod extends Error {
 export default {
   AbstractMethod,
   Vcard: createError('VCardError', data => `vCard: invalid vCard data '${JSON.stringify(data)}'`),
+  GeoIp: createError('GeoIpError', title => `GEOIP error: '${title}'`),
   Rdap: createError('RdapError', title => `RDAP error: '${title}'`),
+  Asn: createError('AsnError', text => `ASN: invalid ASN record '${text}'`),
   Ipv4: createError('Ipv4Error', text => `IPv4: invalid Ipv4 record '${text}'`),
   Ipv6: createError('Ipv6Error', text => `IPv6: invalid Ipv6 record '${text}'`)
 }

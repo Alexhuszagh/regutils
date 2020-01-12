@@ -58,13 +58,13 @@ const encodeKey = key => {
  */
 const encodeValue = value => {
   if (value.country.length !== 2) {
-    throw new Error('invalid country code length')
+    throw new Error(`invalid country code length ${value.country.length}`)
   }
   if (value.date.length !== 8) {
-    throw new Error('invalid date length')
+    throw new Error(`invalid date length ${value.date.length}`)
   }
   if (value.identifier.length > 32) {
-    throw new Error('invalid identifier length')
+    throw new Error(`invalid identifier length ${value.identifier.length}`)
   }
 
   // Create integral/binary representations of our value.

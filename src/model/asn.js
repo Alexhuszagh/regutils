@@ -16,12 +16,27 @@
  *
  */
 
-import asn from './asn'
-import ipv4 from './ipv4'
-import ipv6 from './ipv6'
+import errors from '../errors'
+import util from '../util'
+
+/**
+ *  Format numerical ASN to record.
+ */
+const format = asn => {
+  return asn.toString()
+}
+
+/**
+ *  Parse ASN record to number.
+ */
+const parse = string => {
+  if (!/^\d+$/.test(string)) {
+    throw new errors.Asn(string)
+  }
+  return util.parse.uint32(string)
+}
 
 export default {
-  asn,
-  ipv4,
-  ipv6
+  format,
+  parse
 }
