@@ -32,9 +32,9 @@ let ipv4List = await dns.lookupList(['example.org', 'example.com'], {
 })
 console.log(ipv4List)
 // Response
-//  { 
+//  {
 //      'example.org': [ { address: '93.184.216.34', expiration: 1579036211858 } ],
-//      'example.com': [ { address: '93.184.216.34', expiration: 1579045255858 } ] 
+//      'example.com': [ { address: '93.184.216.34', expiration: 1579045255858 } ]
 //  }
 ```
 
@@ -113,7 +113,7 @@ let range = await cache.ipv4.find(ipv4Parse('2.0.0.0'))
 console.log(range)
 // Response
 //  Notice: IP addresses are stored numerically, use
-//  `regutils.model.ipv4.format` to convert them to 
+//  `regutils.model.ipv4.format` to convert them to
 //  pretty strings.
 //  {
 //      key: 33554432           // '2.0.0.0'
@@ -131,10 +131,10 @@ console.log(range)
 // the delegated range and metadata quite easily.
 ```
 
-# License
+## License
 
 Regutils is licensed under the Apache 2.0 license. See [LICENSE](/LICENSE) for more information.
 
-# Contributing
+## Contributing
 
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in regutils by you, as defined in the Apache-2.0 license, shall be licensed as above, without any additional terms or conditions.
